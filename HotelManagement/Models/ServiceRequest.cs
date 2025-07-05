@@ -13,7 +13,7 @@ namespace HotelManagement.Models
         public string Status { get; set; } // Например: "Открыта", "В процессе", "Закрыта"
         public DateTime CreatedAt { get; set; }
 
-        [ForeignKey("RoomId")]
-        public Room Room { get; set; }
+        //[ForeignKey("RoomId")]
+        //public Room Room { get; set; }
     }
 }

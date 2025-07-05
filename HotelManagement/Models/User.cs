@@ -9,7 +9,7 @@ namespace HotelManagement.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        public string Role { get; set; } // Например: "Admin", "Staff", "Guest"
+        public string Role { get; set; } // Например: "Admin"
        
     }
 }
