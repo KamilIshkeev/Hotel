@@ -7,14 +7,14 @@ namespace HotelManagement.Models
     {
         [Key]
         public int Id { get; set; }
-        public int GuestId { get; set; }
+        public int UserId { get; set; }
         public int RoomId { get; set; }
         public DateTime CheckInDate { get; set; }
         public DateTime CheckOutDate { get; set; }
         public string Status { get; set; } // Например: "Подтверждено", "Отменено"
 
-        [ForeignKey("GuestId")]
-        public Guest Guest { get; set; }
+        [ForeignKey("UserId")]
+        public User User { get; set; }
 
         [ForeignKey("RoomId")]
         public Room Room { get; set; }

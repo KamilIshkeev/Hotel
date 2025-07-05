@@ -1,6 +1,8 @@
 ﻿using HotelManagement.Data;
 using HotelManagement.Interfaces;
 using HotelManagement.Models;
+using HotelManagement.Services;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -66,6 +68,23 @@ namespace HotelManagement.Controllers
         {
             await _UserService.DeleteUserAsync(id);
             return NoContent();
+        }
+
+        [HttpPost("authentication")]
+        public async Task<IActionResult> Authenticate([FromBody] LoginRequest loginRequest)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var authenticatedUser = await _UserService.AuthenticateAsync(loginRequest.Email, loginRequest.Password);
+            if (authenticatedUser == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(authenticatedUser);
         }
     }
 }

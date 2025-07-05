@@ -46,5 +46,11 @@ namespace HotelManagement.Services
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<User> AuthenticateAsync(string email, string password)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
+            return user;
+        }
     }
 }

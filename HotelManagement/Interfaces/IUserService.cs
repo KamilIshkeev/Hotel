@@ -9,5 +9,6 @@ namespace HotelManagement.Interfaces
         Task<User> AddUserAsync(User user);
         Task UpdateUserAsync(User user);
         Task DeleteUserAsync(int id);
+        Task<User> AuthenticateAsync(string email, string password);
     }
 }

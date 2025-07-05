@@ -10,6 +10,6 @@ namespace HotelManagement.Models
         public string Type { get; set; } // Напр.: "Стандарт", "Люкс"
         public decimal PricePerNight { get; set; }
         public bool IsAvailable { get; set; }
-        public ICollection<Booking> Bookings { get; set; }
+        //public ICollection<Booking> Bookings { get; set; }
     }
 }
